@@ -3,7 +3,7 @@ var startSaleTime = prompt('Когда начинаются скидки? (0 - 2
     currentTime;
 
     if ( startSaleTime <= endSaleTime && endSaleTime <= 24 && startSaleTime >= 0 ) {
-      currentTime = prompt('Сколько сейчас времени? (0 - 24)', '');
+      currentTime = prompt('Сколько сейчас времени? (0 - 24)', '0');
       if ( currentTime >= startSaleTime && currentTime <= endSaleTime && currentTime != false) {
         alert('Скидка действует');
       } else if ( currentTime == false ) {
