@@ -2,8 +2,7 @@ var startSaleTime = prompt('Когда начинаются скидки? (0 - 2
     endSaleTime = prompt('Когда заканчиваются скидки? (0 - 24)', ''),
     currentTime;
 
-
-    if ( startSaleTime <= endSaleTime ) {
+    if ( startSaleTime <= endSaleTime && endSaleTime <= 24 ) {
       currentTime = prompt('Сколько сейчас времени? (0 - 24)', '');
       if ( currentTime >= startSaleTime && currentTime <= endSaleTime) {
         alert('Скидка действует');
