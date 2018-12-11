@@ -1,18 +1,31 @@
-var startSaleTime = prompt('Когда начинаются скидки? (0 - 24)', '0'),
-    endSaleTime = prompt('Когда заканчиваются скидки? (0 - 24)', '0'),
+var startSaleTime = question('Когда начинаются скидки?'),
+    endSaleTime,
     currentTime;
 
-    if ( startSaleTime < endSaleTime && endSaleTime <= 24 && startSaleTime >= 0 ) {
-      currentTime = prompt('Сколько сейчас времени? (0 - 24)', '0');
-      if ( currentTime >= startSaleTime && currentTime <= endSaleTime && currentTime != false) {
+if (startSaleTime != undefined) {
+  endSaleTime = question('Когда заканчиваются скидки?');
+  if (endSaleTime != undefined) {
+    currentTime = question('Сколько сейчас времени?');
+    if (currentTime != undefined) {
+      if (startSaleTime <= currentTime && currentTime <= endSaleTime) {
         alert('Скидка действует');
-      } else if ( currentTime == false ) {
-        alert('Вы не ввели текущее время');
-      } else if ( currentTime < 0 || currentTime > 24) {
-        alert('Вы ввели не вернее текущее время');
       } else {
-        alert('Скидка не действует');
+        alert('Скидка сейчас не действует');
       }
     } else {
-      alert('Вы ввели не верные данные');
+      alert('Вы вышли из формы');
     }
+  } else {
+    alert('Вы вышли из формы');
+  }
+} else {
+  alert('Вы вышли из формы');
+}
+
+function question(question) {
+  var i = prompt(question, '');
+  while (isNaN(i) || i < 0 || i > 23 || i == false) {
+    i = prompt('Не верные данные, введите число от 0 до 23\n'  + question, '');
+  }
+  return i;
+}

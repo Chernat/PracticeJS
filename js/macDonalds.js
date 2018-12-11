@@ -1,37 +1,41 @@
-var howMuchMoney = prompt('Скільки у Вас грошей?', '0');
+var howMuchMoney = question('Скільки у Вас грошей?'),
+    bigMac = 'БігМакМеню',
+    burgerAndPotates = 'Чізбургер і картоплю',
+    cola = 'Колу';
 
+if (howMuchMoney != undefined) {
+  if(howMuchMoney >= 100) {
+    order(bigMac);
+  }
+  if(howMuchMoney < 100 && howMuchMoney >= 50) {
+    order(burgerAndPotates);
+  }
+  if(howMuchMoney < 50 && howMuchMoney >= 20) {
+    order(cola);
+  }
+  if(howMuchMoney < 20) {
+    console.log('Пробачте, в нашому закладі немає страв для вас :(');
+    alert('Пробачте, в нашому закладі немає страв для вас :(');
+  }
+} else {
+  alert('Вы вышли из формы');
+}
 
-if (howMuchMoney == false) {
-  alert('Вы не ввели сумму')
-  console.log('Вы не ввели сумму');
-} else if (howMuchMoney >= 100) {
-  order = confirm('Ви можете купити БігМакМеню. Бажаєте?', '');
-  if (order == true) {
-    alert('Ви замовили БігМакМеню');
-    console.log('Ви замовили БігМакМеню');
-  } else {
-    alert('Ви нічого не замовили');
-    console.log('Ви нічого не замовили');
+function question(question) {
+  var i = prompt(question, '');
+  while (isNaN(i) || i < 0 || i == false) {
+    i = prompt('Не верные данные', '');
   }
-} else if (howMuchMoney >= 50 && howMuchMoney <= 100) {
-  order = confirm('Ви можете купити Чізбургер і картоплю. Бажаєте?', '');
+  return i;
+}
+
+function order(product) {
+  order = confirm('Ви можете купити ' + product + ' .' + ' Бажаєте?', '');
   if (order == true) {
-    alert('Ви замовили Чізбургер і картоплю');
-    console.log('Ви замовили Чізбургер і картоплю');
+    console.log('Ви замовили ' + product);
+    alert('Ви замовили ' + product);
   } else {
-    alert('Ви нічого не замовили');
     console.log('Ви нічого не замовили');
-  }
-} else if (howMuchMoney >= 20 && howMuchMoney <= 50) {
-  order = confirm('Ви можете купити Колу. Бажаєте?', '');
-  if (order == true) {
-    alert('Ви замовили Колу');
-    console.log('Ви замовили Колу');
-  } else {
     alert('Ви нічого не замовили');
-    console.log('Ви нічого не замовили');
   }
-} else if (howMuchMoney <= 20) {
-  alert('Пробачте, в нашому закладі немає страв для вас :(');
-  console.log('Пробачте, в нашому закладі немає страв для вас :(');
 }
