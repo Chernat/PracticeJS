@@ -7,7 +7,7 @@ if (startSaleTime != undefined) {
   if (endSaleTime != undefined) {
     currentTime = question('Сколько сейчас времени?');
     if (currentTime != undefined) {
-      if (startSaleTime <= currentTime && currentTime <= endSaleTime) {
+      if (+startSaleTime <= +currentTime && +currentTime <= +endSaleTime) {
         alert('Скидка действует');
       } else {
         alert('Скидка сейчас не действует');
@@ -24,7 +24,7 @@ if (startSaleTime != undefined) {
 
 function question(question) {
   var i = prompt(question, '');
-  while (isNaN(i) || i < 0 || i > 23 || i == false) {
+  while (isNaN(i) || i <= 0 || i >= 23 || i == false) {
     i = prompt('Не верные данные, введите число от 0 до 23\n'  + question, '');
   }
   return i;
