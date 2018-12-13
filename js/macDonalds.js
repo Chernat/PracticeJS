@@ -10,7 +10,7 @@ if (howMuchMoney) {
     order(burgerAndPotates);
   } else if (howMuchMoney >= 20) {
     order(cola);
-  } else if (howMuchMoney < 20) {
+  } else {
    console.log('Пробачте, в нашому закладі немає страв для вас :(');
    alert('Пробачте, в нашому закладі немає страв для вас :(');
  }
